@@ -21,24 +21,24 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 async function Layout({ children, params }: Props) {
+  const { slug } = await params;
   const query = new QueryClient();
 
   await PrefetchUserProfile(query);
-
   await PrefetchUserAutomation(query);
 
   return (
     <HydrationBoundary state={dehydrate(query)}>
       <div className="p-3">
-        <Sidebar slug={params.slug} />
+        <Sidebar slug={slug} />
         <div className="lg:ml-[250px] lg:pl-10 lg:py-5 flex flex-col overflow-auto">
-          <NavBar slug={params.slug} />
+          <NavBar slug={slug} />
           {children}
         </div>
       </div>
