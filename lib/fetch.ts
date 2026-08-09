@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const refreshToken = async (token: string) => {
   const refresh_token = await axios.get(
-    `${process.env.INSTAGRAM_BASE_URL}/refresh_access_token?grant_type=ig_refresh_token&access_token=${token}`
+    `${process.env.INSTAGRAM_BASE_URL}/refresh_access_token?grant_type=ig_refresh_token&access_token=${encodeURIComponent(token)}`
   );
   return refresh_token.data;
 };
@@ -15,7 +15,7 @@ export const sendDm = async (
 ) => {
   console.log("sending Message");
   return await axios.post(
-    `${process.env.INSTAGRAM_BASE_URL}/v21.0/${userId}/messages`,
+    `${process.env.INSTAGRAM_BASE_URL}/v21.0/${encodeURIComponent(userId)}/messages`,
     {
       recipient: {
         id: receiverId,
@@ -41,7 +41,7 @@ export const sendPrivateMessage = async (
 ) => {
   console.log("sending Message");
   return await axios.post(
-    `${process.env.INSTAGRAM_BASE_URL}/${userId}/messages`,
+    `${process.env.INSTAGRAM_BASE_URL}/${encodeURIComponent(userId)}/messages`,
     {
       recipient: {
         comment_id: receiverId,
@@ -83,7 +83,7 @@ export const generateToken = async (code: string) => {
   if (token.permissions.length > 0) {
     console.log("🚀 ~ generateToken ~ token:", token);
     const long_token = await axios.get(
-      `${process.env.INSTAGRAM_BASE_URL}/access_token?grant_type=ig_exchange_token&client_secret=${process.env.INSTAGRAM_CLIENT_SECRET}&access_token=${token.access_token}`
+      `${process.env.INSTAGRAM_BASE_URL}/access_token?grant_type=ig_exchange_token&client_secret=${process.env.INSTAGRAM_CLIENT_SECRET}&access_token=${encodeURIComponent(token.access_token)}`
     );
 
     return long_token.data;
