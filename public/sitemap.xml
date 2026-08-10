@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home / Landing Page -->
+  <url>
+    <loc>https://ig.basekey.in/</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://ig.basekey.in/logo.png</image:loc>
+      <image:title>Instagram Automation - SaaS DM & Comment Automation</image:title>
+      <image:caption>Instagram Automation Platform Logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Auth Pages -->
+  <url>
+    <loc>https://ig.basekey.in/sign-in</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://ig.basekey.in/sign-up</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Main App Pages (Protected) -->
+  <url>
+    <loc>https://ig.basekey.in/dashboard</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ig.basekey.in/payment</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://ig.basekey.in/callback/instagram</loc>
+    <lastmod>2026-08-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!--
+    NOTE: The following routes are dynamic (app/(protected)/dashboard/[slug]/...)
+    and depend on each user's workspace slug / automation id, so they are
+    intentionally NOT listed with a literal URL in this static sitemap
+    (search engines can't crawl a per-user dashboard anyway):
+
+      /dashboard/[slug]
+      /dashboard/[slug]/automation
+      /dashboard/[slug]/automation/[id]
+      /dashboard/[slug]/integrations
+      /dashboard/[slug]/settings
+  -->
+
+</urlset>
